@@ -2,11 +2,11 @@ import {Table} from "react-bootstrap";
 import React from "react";
 import useLocationSort from "../../utils/hooks/useLocationSort"
 
-function UserTable(props, sort, updateSort) {
+function UserTable( {users, search, sort, updateSort} ) {
 
     const filterBySearch = user => {
         const fullName = `${user.name.first} ${user.name.last}`; 
-        return !props.search || fullName.toLowerCase().includes(props.search.toLowerCase()) 
+        return !search || fullName.toLowerCase().includes(search.toLowerCase()) 
     }
 
     const sortByLocation = useLocationSort(sort);
@@ -26,7 +26,7 @@ function UserTable(props, sort, updateSort) {
                 </tr>
             </thead>
             <tbody>
-                {props.users.filter(filterBySearch).sort(sortByLocation).map(user => {
+                {users.filter(filterBySearch).sort(sortByLocation).map(user => {
                     return (
                         <tr key={user.id.value}>
                         <td>{user.name.first}</td>

@@ -6,7 +6,7 @@ function SearchForm(props){
         <Form>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Search By Name</Form.Label>
-                <Form.Control type="text" placeholder="Search" onChange={
+                <Form.Control type="text" placeholder="Search Name" onChange={
                     e => props.updateSearch(e.target.value)}/>
             </Form.Group>
         </Form>

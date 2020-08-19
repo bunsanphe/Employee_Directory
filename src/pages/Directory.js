@@ -8,9 +8,6 @@ import {Container, Card} from "react-bootstrap";
 
 class Directory extends React.Component {
     state = {
-        name: "",
-        role: "",
-        manager: "",
         users: [],
         search: "",
         searchType: "name",
@@ -42,9 +39,13 @@ class Directory extends React.Component {
         return (
             <Container>
                 <Card body>
-                    <SearchForm onChange={this.updateSearch}/>
+                    <SearchForm updateSearch={this.updateSearch}/>
                 </Card>
-                <UserTable users={this.state.users} search={this.state.search} updateSort={this.updateSort}/>
+                <UserTable 
+                users={this.state.users} 
+                search={this.state.search} 
+                sort={this.state.sort}
+                updateSort={this.updateSort}/>
             </Container>
             )
     }
